@@ -17,7 +17,7 @@ class DeleteTest extends TestCase
     public function testExample()
     {
         $user = User::inRandomOrder()->first();
-        $name = $user->name;
+        $name = $user->email;
         $user->delete();
         $this->assertDatabaseMissing('users', [
             'name' => $name
