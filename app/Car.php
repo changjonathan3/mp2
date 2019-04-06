@@ -12,4 +12,7 @@ class Car extends Model
     protected $fillable = [
         'Make', 'Model', 'Year',
     ];
+    protected $casts = [
+        'Year' => 'integer',
+    ];
 }
