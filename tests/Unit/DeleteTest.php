@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
 
-class UpdateTest extends TestCase
+class DeleteTest extends TestCase
 {
     /**
      * A basic unit test example.
@@ -17,10 +17,10 @@ class UpdateTest extends TestCase
     public function testExample()
     {
         $user = User::inRandomOrder()->first();
-        $user->name='Steve Smith';
-        $user->save();
-        $this->assertDatabaseHas('users', [
-            'name' => 'Steve Smith'
+        $name = $user->name;
+        $user->delete();
+        $this->assertDatabaseMissing('users', [
+            'name' => $name
         ]);
     }
 }
