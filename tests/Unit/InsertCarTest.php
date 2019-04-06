@@ -5,11 +5,10 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\User;
+use App\Car;
 
-class InsertTest extends TestCase
+class InsertCarTest extends TestCase
 {
-
     /**
      * A basic unit test example.
      *
@@ -17,11 +16,10 @@ class InsertTest extends TestCase
      */
     public function testExample()
     {
-
-        $user = factory(User::class)->create();
-        $this->assertDatabaseHas('users', [
-            'name' => $user->name,
-            'email' => $user->email
-        ]);
-    }
+        $car = factory(Car::class)->create();
+        $this->assertDatabaseHas('cars', [
+            'Make' => $car->Make,
+            'Model' => $car->Model,
+            'Year' => $car->Year
+        ]);    }
 }

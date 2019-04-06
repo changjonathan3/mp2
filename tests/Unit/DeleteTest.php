@@ -17,10 +17,12 @@ class DeleteTest extends TestCase
     public function testExample()
     {
         $user = User::inRandomOrder()->first();
-        $name = $user->email;
+        $name = $user->name;
+        $email = $user->email;
         $user->delete();
         $this->assertDatabaseMissing('users', [
-            'name' => $name
+            'name' => $name,
+            'email' => $email
         ]);
     }
 }
