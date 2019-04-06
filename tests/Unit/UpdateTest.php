@@ -18,9 +18,11 @@ class UpdateTest extends TestCase
     {
         $user = User::inRandomOrder()->first();
         $user->name='Steve Smith';
+        $email = $user->email;
         $user->save();
         $this->assertDatabaseHas('users', [
-            'name' => 'Steve Smith'
+            'name' => 'Steve Smith',
+            'email' => $email
         ]);
     }
 }
